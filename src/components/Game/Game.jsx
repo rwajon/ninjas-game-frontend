@@ -51,6 +51,7 @@ class Game extends Component {
       country: document.querySelector('#country').innerHTML
     };
     submitAnswer(payload);
+    e.target.answer.value = '';
     return false;
   };
 
