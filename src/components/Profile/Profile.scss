@@ -9,5 +9,7 @@
 .grabProfileImage img {
   border-radius: 50%;
   max-width: 200px;
+  min-width: 80px;
+
   border: ($small/3) solid $light;
 }
