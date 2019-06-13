@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../assets/css/style.scss';
-import './Quiz.scss';
+// import './Quiz.scss';
 import { gameAction } from '../../actions';
 
 class Game extends Component {
@@ -21,7 +21,7 @@ class Game extends Component {
     e.preventDefault();
     const { submitName } = this.props;
     submitName(e.target.name.value);
-   
+
     return false;
   };
   render() {
