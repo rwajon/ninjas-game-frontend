@@ -13,6 +13,12 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         names: state.names.filter((name, key) => key !== parseInt(payload, 10))
       };
+
+    case types.game.SUBMIT_ANSWER:
+      return {
+        ...state,
+        answer: { country: payload.country, answer: payload.answer }
+      };
     default:
       return state;
   }
