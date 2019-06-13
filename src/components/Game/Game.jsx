@@ -5,7 +5,6 @@ import '../../assets/css/style.scss';
 import './Game.scss';
 import { gameAction } from '../../actions';
 import Profile from '../Profile/Profile';
-import Logout from '../Logout/Logout';
 
 class Game extends Component {
   handleSubmit = e => {
@@ -20,7 +19,6 @@ class Game extends Component {
     return (
       <div className="container">
         <Profile profile={profile} />
-        <Logout />
         <div className="container shadow-2 radius-3">
           <div className="center">
             <h1 className="primary text-white uppercase large-padding center-align">

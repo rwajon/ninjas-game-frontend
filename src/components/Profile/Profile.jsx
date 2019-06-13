@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
+import Logout from '../Logout/Logout';
 
 export default class Profile extends Component {
   render() {
@@ -27,6 +28,9 @@ export default class Profile extends Component {
               {profile.firstName} {profile.lastName}
             </h1>
           </div>
+          <div className="clear" />
+
+          <Logout />
         </div>
       </div>
     );
