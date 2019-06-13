@@ -7,6 +7,7 @@ import Home from './Home/Home';
 import Login from './Login/Login';
 import Game from './Game/Game';
 import Profile from './Profile/Profile';
+import Quiz from './Questionaire/Quiz';
 
 export const Routes = ({ isAuth }) => (
   <Switch>
@@ -27,6 +28,7 @@ export const Routes = ({ isAuth }) => (
       path="/game"
       render={props => (isAuth ? <Game {...props} /> : <Home />)}
     />
+    <Route exact path="/quiz" render={props => <Quiz {...props} />} />
   </Switch>
 );
 
