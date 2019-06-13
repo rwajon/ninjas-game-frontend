@@ -6,12 +6,40 @@ import { PropTypes } from 'prop-types';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Game from './Game/Game';
+import Profile from './Profile/Profile';
 
-export default () => (
+export const Routes = ({ isAuth }) => (
   <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/home" component={Home} />
+    <Route
+      exact
+      path="/"
+      render={props => <Home {...props} isAuth={isAuth} />}
+    />
+    <Route
+      exact
+      path="/home"
+      render={props => <Home {...props} isAuth={isAuth} />}
+    />
     <Route exact path="/login" render={props => <Login {...props} />} />
-    <Route exact path="/game" render={props => <Game {...props} />} />
+    <Route exact path="/profile" render={props => <Profile {...props} />} />
+    <Route
+      exact
+      path="/game"
+      render={props => (isAuth ? <Game {...props} /> : <Home />)}
+    />
   </Switch>
 );
+
+Routes.propTypes = {
+  isAuth: PropTypes.bool
+};
+
+Routes.defaultProps = {
+  isAuth: false
+};
+
+export const mapStateToProps = ({ user: { isAuth } }) => ({
+  isAuth
+});
+
+export default connect(mapStateToProps)(Routes);

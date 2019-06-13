@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../../assets/css/style.scss';
 import './Game.scss';
 import { gameAction } from '../../actions';
+import Profile from '../Profile/Profile';
 
 class Game extends Component {
   handleSubmit = e => {
@@ -14,17 +15,18 @@ class Game extends Component {
   };
 
   render() {
-    const { names, removeName } = this.props;
+    const { names, removeName, profile } = this.props;
     return (
       <div className="container">
+        <Profile profile={profile} />
         <div className="container shadow-2 radius-3">
           <div className="center">
-            <h1 className="primary text-white radius-2 uppercase large-padding center-align">
+            <h1 className="primary text-white uppercase large-padding center-align">
               Name Test
             </h1>
             <div className="large-padding">
               <form onSubmit={this.handleSubmit}>
-                <div className="radius-2 medium-padding card">
+                <div className="radius-2 medium-padding input-field">
                   <input
                     type="text"
                     placeholder="Enter your name"
@@ -36,9 +38,9 @@ class Game extends Component {
                   <button
                     type="submit"
                     id="submit"
-                    className="radius-4 primary text-white center-align large-h-padding large-text"
+                    className="radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
                   >
-                    Submit
+                    Play Now
                   </button>
                 </div>
                 <br />
@@ -72,11 +74,13 @@ class Game extends Component {
 
 Game.propTypes = {
   names: PropTypes.array.isRequired,
+  profile: PropTypes.object.isRequired,
   removeName: PropTypes.func.isRequired
 };
 
-export const mapStateToProps = ({ game: { names } }) => ({
-  names
+export const mapStateToProps = ({ game: { names }, user: { profile } }) => ({
+  names,
+  profile
 });
 
 export const mapDispatchToProps = dispatch => ({

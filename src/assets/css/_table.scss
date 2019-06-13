@@ -1,0 +1,30 @@
+/* table */
+table {
+  width: 100% !important;
+}
+table,
+th,
+td {
+  margin: 1em 1%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 12px;
+}
+table {
+  width: 98%;
+  border-spacing: 5px;
+}
+
+table.bordered th,
+table.bordered td {
+  border-bottom: 1px solid $grey;
+}
+
+table td:first-child {
+  width: 20px;
+}
+table tr:last-child {
+  border-bottom: 1px !important;
+}

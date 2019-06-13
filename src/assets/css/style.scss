@@ -7,6 +7,8 @@
 @import 'shadow';
 @import 'radius';
 @import 'loginpage';
+@import 'form';
+@import 'button';
 // Font family
 $font: 'Open Sans', sans-serif;
 
@@ -67,6 +69,7 @@ header {
 }
 .center {
   margin: 0 auto;
+  display: block;
 }
 
 // align
@@ -168,4 +171,7 @@ header {
 .tagsmenu a {
   padding: 0.5em;
   font-size: 1em;
+}
+.hide {
+  display: none;
 }

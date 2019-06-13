@@ -3,8 +3,9 @@ import logo from '../../assets/images/ninjas.jpg';
 import './Home.scss';
 import '../../assets/css/style.scss';
 
-export class Home extends React.Component {
+export default class Home extends React.Component {
   render() {
+    const { isAuth } = this.props;
     return (
       <div className="container App">
         <div className="container shadow-2 radius-3">
@@ -15,38 +16,41 @@ export class Home extends React.Component {
             <div className="large-padding">
               <img src={logo} className="App-logo" alt="logo" />
               <hr />
-              <a
-                className="radius-4 grey text-white large-h-padding large-text"
-                href="/game"
-              >
-                Click here to play The Game
-              </a>
-              <hr />
               <br />
               <a
-                className="social-login radius-4 primary text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/facebook"
-                target="_blank"
-                rel="noopener noreferrer"
+                className="radius-4 button primary radius-5 text-white large-h-padding large-text"
+                href="/game"
               >
-                Facebook
+                {isAuth ? 'Click here to play The Game' : 'Login to play'}
               </a>
-              <a
-                className="social-login radius-4 info text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              <a
-                className="social-login radius-4 danger text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/google"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Gmail
-              </a>
+              <br />
+              <br />
+              <hr />
+              <div className={isAuth ? 'hide' : ''}>
+                <br />
+                <a
+                  className="social-login radius-4 button danger radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/google"
+                >
+                  Google
+                </a>
+                <a
+                  className="social-login radius-4 button info radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/twitter"
+                >
+                  Twitter
+                </a>
+                <a
+                  className="social-login radius-4 button primary radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/facebook"
+                >
+                  Facebook
+                </a>
+                <br />
+                <br />
+                <hr />
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -54,5 +58,3 @@ export class Home extends React.Component {
     );
   }
 }
-
-export default Home;
