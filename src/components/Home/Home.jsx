@@ -3,8 +3,9 @@ import logo from '../../assets/images/ninjas.jpg';
 import './Home.scss';
 import '../../assets/css/style.scss';
 
-export class Home extends React.Component {
+export default class Home extends React.Component {
   render() {
+    const { isAuth } = this.props;
     return (
       <div className="container App">
         <div className="container shadow-2 radius-3">
@@ -18,7 +19,11 @@ export class Home extends React.Component {
               <br />
               <a
                 className="radius-4 button primary radius-5 text-white large-h-padding large-text"
-                href="/game"
+                href={
+                  isAuth
+                    ? '/game'
+                    : 'http://localhost:3000/api/v1/auth/facebook'
+                }
               >
                 Click here to play The Game
               </a>
@@ -33,5 +38,3 @@ export class Home extends React.Component {
     );
   }
 }
-
-export default Home;

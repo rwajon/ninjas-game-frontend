@@ -5,6 +5,7 @@ import '../../assets/css/style.scss';
 import './Game.scss';
 import { gameAction } from '../../actions';
 import Profile from '../Profile/Profile';
+import Logout from '../Logout/Logout';
 
 class Game extends Component {
   handleSubmit = e => {
@@ -15,13 +16,10 @@ class Game extends Component {
   };
 
   render() {
-    const profile = {
-      firstName: 'John',
-      lastName: 'Doe'
-    };
-    const { names, removeName } = this.props;
+    const { names, removeName, profile } = this.props;
     return (
       <div className="container">
+        <Logout />
         <Profile profile={profile} />
         <div className="container shadow-2 radius-3">
           <div className="center">
@@ -78,11 +76,13 @@ class Game extends Component {
 
 Game.propTypes = {
   names: PropTypes.array.isRequired,
+  profile: PropTypes.object.isRequired,
   removeName: PropTypes.func.isRequired
 };
 
-export const mapStateToProps = ({ game: { names } }) => ({
-  names
+export const mapStateToProps = ({ game: { names }, user: { profile } }) => ({
+  names,
+  profile
 });
 
 export const mapDispatchToProps = dispatch => ({

@@ -13,7 +13,7 @@ export default class Profile extends Component {
         <div className="row shadow-3 ">
           <div className="grabProfileImage center grey">
             <img
-              src={profile.picture || defaultPicture}
+              src={profile.image || defaultPicture}
               className="center shadow-4"
               alt="Profile"
             />
