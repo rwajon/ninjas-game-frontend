@@ -19,18 +19,38 @@ export default class Home extends React.Component {
               <br />
               <a
                 className="radius-4 button primary radius-5 text-white large-h-padding large-text"
-                href={
-                  isAuth
-                    ? '/game'
-                    : 'http://localhost:3000/api/v1/auth/facebook'
-                }
+                href="/game"
               >
-                Click here to play The Game
+                {isAuth ? 'Click here to play The Game' : 'Login to play'}
               </a>
               <br />
               <br />
               <hr />
-              <br />
+              <div className={isAuth ? 'hide' : ''}>
+                <br />
+                <a
+                  className="social-login radius-4 button danger radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/google"
+                >
+                  Google
+                </a>
+                <a
+                  className="social-login radius-4 button info radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/twitter"
+                >
+                  Twitter
+                </a>
+                <a
+                  className="social-login radius-4 button primary radius-5 text-white large-h-padding large-text"
+                  href="http://localhost:3000/api/v1/auth/facebook"
+                >
+                  Facebook
+                </a>
+                <br />
+                <br />
+                <hr />
+                <br />
+              </div>
             </div>
           </div>
         </div>
