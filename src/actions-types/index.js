@@ -1,3 +1,4 @@
-import * as game from './game-actions';
+import * as user from './userActions';
+import * as game from './gameActions';
 
-export { game };
+export { user, game };
