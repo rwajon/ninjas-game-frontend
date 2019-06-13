@@ -19,8 +19,8 @@ class Game extends Component {
     const { names, removeName, profile } = this.props;
     return (
       <div className="container">
-        <Logout />
         <Profile profile={profile} />
+        <Logout />
         <div className="container shadow-2 radius-3">
           <div className="center">
             <h1 className="primary text-white uppercase large-padding center-align">
