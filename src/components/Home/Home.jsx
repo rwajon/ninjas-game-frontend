@@ -15,38 +15,17 @@ export class Home extends React.Component {
             <div className="large-padding">
               <img src={logo} className="App-logo" alt="logo" />
               <hr />
+              <br />
               <a
-                className="radius-4 grey text-white large-h-padding large-text"
+                className="radius-4 button primary radius-5 text-white large-h-padding large-text"
                 href="/game"
               >
                 Click here to play The Game
               </a>
+              <br />
+              <br />
               <hr />
               <br />
-              <a
-                className="social-login radius-4 primary text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-              <a
-                className="social-login radius-4 info text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              <a
-                className="social-login radius-4 danger text-white large-h-padding large-text"
-                href="http://localhost:3000/api/v1/auth/google"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Gmail
-              </a>
             </div>
           </div>
         </div>

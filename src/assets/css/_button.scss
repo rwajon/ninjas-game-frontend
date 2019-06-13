@@ -1,0 +1,15 @@
+/* button */
+.button {
+  padding: ($medium);
+  margin-right: ($xsmall / 3);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.button:disabled {
+  background: $light;
+}
+button.button {
+  padding: ($xsmall / 3) $large;
+  cursor: pointer;
+}

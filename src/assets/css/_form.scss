@@ -1,0 +1,33 @@
+form {
+  margin: 0.5%;
+  width: 99%;
+  clear: both;
+}
+.input-field {
+  padding: 2% 0.5%;
+  width: 99%;
+}
+.input-field input,
+.input-field textarea {
+  padding: 1em 1.5%;
+  width: 97%;
+  margin: 0.5em 0;
+  border: 1px solid $grey;
+  border-radius: 25px;
+}
+.input-field textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+.input-field input:focus,
+.input-field textarea:focus {
+  outline-width: 0;
+  border: 1px solid $grey !important;
+  outline: none !important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4) !important;
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4) !important;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4) !important;
+}
+*:focus {
+  outline: none;
+}
