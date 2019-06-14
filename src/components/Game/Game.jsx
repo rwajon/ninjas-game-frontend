@@ -88,6 +88,7 @@ class Game extends Component {
                       placeholder="Enter your answer"
                       name="answer"
                       id="name"
+                      autoComplete="off"
                       className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
                     />
                   </div>
