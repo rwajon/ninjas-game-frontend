@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from '../components/Profile/Profile';
+import Profile from '../../components/Profile/Profile';
 
 it('renders without crashing', () => {
   const profile = {

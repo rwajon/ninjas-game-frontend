@@ -48,15 +48,16 @@ class Game extends Component {
     const { submitAnswer } = this.props;
     const payload = {
       answer: e.target.answer.value,
-      country: document.querySelector('#country').innerHTML
+      country: document.querySelector('#country')
+        ? document.querySelector('#country').innerHTML
+        : ''
     };
-    submitAnswer(payload);
-    e.target.answer.value = '';
+    e.target.answer.value = payload.country ? submitAnswer(payload) && '' : '';
     return false;
   };
 
-  render() {
-    const { profile, countries, answer } = this.props;
+  render = () => {
+    const { countries, answer } = this.props;
     const generatedQuestion = quizGenerator(countries);
     const checkAnswer = Object.keys(answer).length
       ? this.checkAnswer(answer)
@@ -64,7 +65,7 @@ class Game extends Component {
 
     return (
       <div className="container">
-        <Profile profile={profile} />
+        <Profile />
         <div className="container shadow-2 radius-3">
           <div className="center">
             <form onSubmit={this.handleSubmit}>
@@ -85,9 +86,10 @@ class Game extends Component {
                     name="answer"
                     id="name"
                     autoComplete="off"
-                    className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
+                    className="shadow-4 radius-2 medium-padding card medium-text"
                   />
                 </div>
+                <br />
                 <br />
                 <div className="card">
                   <button
@@ -119,31 +121,23 @@ class Game extends Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 Game.propTypes = {
-  names: PropTypes.array.isRequired,
-  profile: PropTypes.object.isRequired,
-  removeName: PropTypes.func.isRequired
+  countries: PropTypes.array.isRequired,
+  answer: PropTypes.object.isRequired,
+  submitAnswer: PropTypes.func.isRequired
 };
 
-export const mapStateToProps = store => {
-  return {
-    names: store.game.names,
-    profile: store.user.profile,
-    countries: store.game.countries,
-    answer: store.game.answer
-  };
-};
+export const mapStateToProps = ({ game: { countries, answer } }) => ({
+  countries,
+  answer
+});
 
-export const mapDispatchToProps = dispatch => {
-  return {
-    submitName: name => dispatch(gameAction.submit(name)),
-    removeName: id => dispatch(gameAction.remove(id)),
-    submitAnswer: payload => dispatch(gameAction.submitAnswer(payload))
-  };
-};
+export const mapDispatchToProps = dispatch => ({
+  submitAnswer: payload => dispatch(gameAction.submitAnswer(payload))
+});
 
 export default connect(
   mapStateToProps,

@@ -6,7 +6,7 @@ import '../../assets/css/style.scss';
 import './Profile.scss';
 import Logout from '../Logout/Logout';
 
-export default class Profile extends Component {
+class Profile extends Component {
   render() {
     const { profile } = this.props;
     return (
@@ -19,11 +19,10 @@ export default class Profile extends Component {
               alt="Profile"
             />
           </div>
-          <div class="card no-margin center-align">
+          <div className="card no-margin center-align">
             <div className="text-info large-text">
-              Hello,
-              <br />{' '}
-            </div>{' '}
+              Hello, <br />
+            </div>
             <h1 className="no-margin">
               {profile.firstName} {profile.lastName}
             </h1>
@@ -35,3 +34,13 @@ export default class Profile extends Component {
     );
   }
 }
+
+Profile.propTypes = {
+  profile: PropTypes.object.isRequired
+};
+
+export const mapStateToProps = ({ user: { profile } }) => ({
+  profile
+});
+
+export default connect(mapStateToProps)(Profile);
