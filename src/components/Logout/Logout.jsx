@@ -11,7 +11,7 @@ export default class Logout extends Component {
           <button
             type="button"
             className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
-            onClick={() => logout()}
+            onClick={logout}
           >
             Logout
           </button>
