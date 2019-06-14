@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes game page (/game) 1`] = `
+<div
+  className="container App"
+>
+  <div
+    className="container shadow-2 radius-3"
+  >
+    <div
+      className="center"
+    >
+      <h1
+        className="primary text-white radius-2 uppercase large-padding center-align"
+      >
+        Capital City Challenge
+      </h1>
+      <div
+        className="large-padding"
+      >
+        <img
+          alt="logo"
+          className="App-logo"
+          src="ninjas.jpg"
+        />
+        <hr />
+        <br />
+        <a
+          className="radius-4 button primary radius-5 text-white large-h-padding large-text"
+          href="/game"
+        >
+          Login to play
+        </a>
+        <br />
+        <br />
+        <hr />
+        <div
+          className=""
+        >
+          <br />
+          <a
+            className="social-login radius-4 button danger radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/google"
+          >
+            Google
+          </a>
+          <a
+            className="social-login radius-4 button info radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/twitter"
+          >
+            Twitter
+          </a>
+          <a
+            className="social-login radius-4 button primary radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/facebook"
+          >
+            Facebook
+          </a>
+          <br />
+          <br />
+          <hr />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Routes home page (/) 1`] = `
+<div
+  className="container App"
+>
+  <div
+    className="container shadow-2 radius-3"
+  >
+    <div
+      className="center"
+    >
+      <h1
+        className="primary text-white radius-2 uppercase large-padding center-align"
+      >
+        Capital City Challenge
+      </h1>
+      <div
+        className="large-padding"
+      >
+        <img
+          alt="logo"
+          className="App-logo"
+          src="ninjas.jpg"
+        />
+        <hr />
+        <br />
+        <a
+          className="radius-4 button primary radius-5 text-white large-h-padding large-text"
+          href="/game"
+        >
+          Login to play
+        </a>
+        <br />
+        <br />
+        <hr />
+        <div
+          className=""
+        >
+          <br />
+          <a
+            className="social-login radius-4 button danger radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/google"
+          >
+            Google
+          </a>
+          <a
+            className="social-login radius-4 button info radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/twitter"
+          >
+            Twitter
+          </a>
+          <a
+            className="social-login radius-4 button primary radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/facebook"
+          >
+            Facebook
+          </a>
+          <br />
+          <br />
+          <hr />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Routes home page (/home) 1`] = `
+<div
+  className="container App"
+>
+  <div
+    className="container shadow-2 radius-3"
+  >
+    <div
+      className="center"
+    >
+      <h1
+        className="primary text-white radius-2 uppercase large-padding center-align"
+      >
+        Capital City Challenge
+      </h1>
+      <div
+        className="large-padding"
+      >
+        <img
+          alt="logo"
+          className="App-logo"
+          src="ninjas.jpg"
+        />
+        <hr />
+        <br />
+        <a
+          className="radius-4 button primary radius-5 text-white large-h-padding large-text"
+          href="/game"
+        >
+          Login to play
+        </a>
+        <br />
+        <br />
+        <hr />
+        <div
+          className=""
+        >
+          <br />
+          <a
+            className="social-login radius-4 button danger radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/google"
+          >
+            Google
+          </a>
+          <a
+            className="social-login radius-4 button info radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/twitter"
+          >
+            Twitter
+          </a>
+          <a
+            className="social-login radius-4 button primary radius-5 text-white large-h-padding large-text"
+            href="http://localhost:3000/api/v1/auth/facebook"
+          >
+            Facebook
+          </a>
+          <br />
+          <br />
+          <hr />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

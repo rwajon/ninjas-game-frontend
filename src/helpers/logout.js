@@ -4,6 +4,7 @@ export default () => {
   if (user) {
     document.cookie = 'user=';
     window.location.replace('/');
+    return true;
   }
   return false;
 };
