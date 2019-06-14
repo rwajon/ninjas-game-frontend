@@ -19,7 +19,7 @@ export default class Profile extends Component {
               alt="Profile"
             />
           </div>
-          <div class="card center-align">
+          <div className="card center-align">
             <div className="text-info large-text">
               Hello,
               <br />{' '}
