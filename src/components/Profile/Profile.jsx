@@ -11,7 +11,7 @@ export default class Profile extends Component {
     const { profile } = this.props;
     return (
       <div className="container">
-        <div className="row shadow-3 ">
+        <div className="row shadow-3 radius-4 ">
           <div className="grabProfileImage center">
             <img
               src={profile.image || defaultPicture}
@@ -19,17 +19,16 @@ export default class Profile extends Component {
               alt="Profile"
             />
           </div>
-          <div className="card center-align">
+          <div class="card no-margin center-align">
             <div className="text-info large-text">
               Hello,
               <br />{' '}
             </div>{' '}
-            <h1>
+            <h1 className="no-margin">
               {profile.firstName} {profile.lastName}
             </h1>
           </div>
           <div className="clear" />
-
           <Logout />
         </div>
       </div>

@@ -67,60 +67,53 @@ class Game extends Component {
         <Profile profile={profile} />
         <div className="container shadow-2 radius-3">
           <div className="center">
-            <h3 className="primary text-white uppercase large-padding center-align">
-              Name Test
-            </h3>
-            <div className="large-padding">
-              <form onSubmit={this.handleSubmit}>
-                <div className="radius-2 medium-padding input-field">
-                  <div
-                    id="question"
-                    className="info text-white large-padding center-align"
-                  >
-                    {generatedQuestion.question}
-                  </div>
-                  <div id="country" className="hide">
-                    {generatedQuestion.country}
-                  </div>
-                  <div className="card">
-                    <input
-                      type="text"
-                      placeholder="Enter your answer"
-                      name="answer"
-                      id="name"
-                      autoComplete="off"
-                      className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
-                    />
-                  </div>
-                  <br />
-                  <div className="card">
-                    <button
-                      type="submit"
-                      className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
-                    >
-                      Answer
-                    </button>
-                    <button
-                      onClick={this.changeQuestion}
-                      className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
-                    >
-                      Skip
-                    </button>
-                  </div>
+            <form onSubmit={this.handleSubmit}>
+              <div
+                id="question"
+                className="primary card radius-3 bold large-text text-white center-align"
+              >
+                {generatedQuestion.question}
+              </div>
+              <div id="country" className="hide">
+                {generatedQuestion.country}
+              </div>
+              <div className="radius-2 input-field">
+                <div className="card">
+                  <input
+                    type="text"
+                    placeholder="Enter your answer"
+                    name="answer"
+                    id="name"
+                    autoComplete="off"
+                    className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
+                  />
                 </div>
-              </form>
-              <div className="primary large-padding">
-                <div className="container shadow-2 radius-3 large-padding">
-                  {checkAnswer ? (
-                    <div className="white card radius-2 small-padding center-align">
-                      <h3>{checkAnswer.message}</h3>
-                      <img src={checkAnswer.image} alt="" />
-                    </div>
-                  ) : (
-                    ''
-                  )}
+                <br />
+                <div className="card">
+                  <button
+                    type="submit"
+                    className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+                  >
+                    Answer
+                  </button>
+                  <button
+                    onClick={this.changeQuestion}
+                    className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+                  >
+                    Skip
+                  </button>
                 </div>
               </div>
+            </form>
+            <div className="grey container shadow-2 radius-3">
+              {checkAnswer ? (
+                <div className="white card radius-2 small-padding center-align">
+                  <h3>{checkAnswer.message}</h3>
+                  <img src={checkAnswer.image} alt="" />
+                </div>
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </div>

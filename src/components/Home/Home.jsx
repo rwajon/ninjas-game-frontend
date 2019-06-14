@@ -11,7 +11,7 @@ export default class Home extends React.Component {
         <div className="container shadow-2 radius-3">
           <div className="center">
             <h1 className="primary text-white radius-2 uppercase large-padding center-align">
-              Name Test
+            Capital City Challenge
             </h1>
             <div className="large-padding">
               <img src={logo} className="App-logo" alt="logo" />
