@@ -1,4 +1,4 @@
-const isAuth = require('../helpers/isAuth');
+const user = require('../helpers/checkUser')();
 
 module.exports = {
   game: {
@@ -63,7 +63,7 @@ module.exports = {
     attempts: []
   },
   user: {
-    profile: isAuth() || {},
-    isAuth: isAuth() && true
+    profile: user.profile,
+    isAuth: user.isAuth
   }
 };

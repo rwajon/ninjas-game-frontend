@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game game 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row shadow-3 radius-4 "
+    >
+      <div
+        className="grabProfileImage center"
+      >
+        <img
+          alt="Profile"
+          className="center shadow-4"
+          src="profile_plaholder.png"
+        />
+      </div>
+      <div
+        className="card no-margin center-align"
+      >
+        <div
+          className="text-info large-text"
+        >
+          Hello,
+          <br />
+           
+        </div>
+         
+        <h1
+          className="no-margin"
+        >
+           
+        </h1>
+      </div>
+      <div
+        className="clear"
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="card center-align"
+        >
+          <button
+            className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
+            onClick={[Function]}
+            type="button"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container shadow-2 radius-3"
+  >
+    <div
+      className="center"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="primary card radius-3 bold large-text text-white center-align"
+          id="question"
+        >
+          What is the capital of Sierra Leone ?
+        </div>
+        <div
+          className="hide"
+          id="country"
+        >
+          Sierra Leone
+        </div>
+        <div
+          className="radius-2 input-field"
+        >
+          <div
+            className="card"
+          >
+            <input
+              autoComplete="off"
+              className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
+              id="name"
+              name="answer"
+              placeholder="Enter your answer"
+              type="text"
+            />
+          </div>
+          <br />
+          <div
+            className="card"
+          >
+            <button
+              className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+              type="submit"
+            >
+              Answer
+            </button>
+            <button
+              className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+              onClick={[Function]}
+            >
+              Skip
+            </button>
+          </div>
+        </div>
+      </form>
+      <div
+        className="grey container shadow-2 radius-3"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
