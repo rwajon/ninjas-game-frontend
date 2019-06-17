@@ -56,7 +56,7 @@ class Game extends Component {
   };
 
   render() {
-    const { profile, countries, answer } = this.props;
+    const { countries, answer } = this.props;
     const generatedQuestion = quizGenerator(countries);
     const checkAnswer = Object.keys(answer).length
       ? this.checkAnswer(answer)
@@ -66,10 +66,10 @@ class Game extends Component {
       <div className="container">
         <div className="row">
           <div className="small-screen-4 medium-screen-1 large-screen-1">
-            <Profile profile={profile} />
+            <Profile />
           </div>
           <div className="small-screen-4 medium-screen-3 large-screen-3">
-            <div className="grabGame row shadow-3 black radius-4 text-white">
+            <div className="grabGame row shadow-3 black-opacity-3 radius-4 text-white">
               <div className="medium-v-padding">
                 <form onSubmit={this.handleSubmit}>
                   <div
@@ -147,14 +147,12 @@ class Game extends Component {
 
 Game.propTypes = {
   names: PropTypes.array.isRequired,
-  profile: PropTypes.object.isRequired,
   removeName: PropTypes.func.isRequired
 };
 
 export const mapStateToProps = store => {
   return {
     names: store.game.names,
-    profile: store.user.profile,
     countries: store.game.countries,
     answer: store.game.answer
   };

@@ -1,8 +1,9 @@
 /* table */
-table {
+.table {
   width: 100% !important;
+  border-collapse: collapse;
 }
-table,
+.table,
 th,
 td {
   margin: 1em 1%;
@@ -17,14 +18,14 @@ table {
   border-spacing: 5px;
 }
 
-table.bordered th,
-table.bordered td {
+.table.bordered th,
+.table.bordered td {
   border-bottom: 1px solid $grey;
 }
 
-table td:first-child {
+.table td:first-child {
   width: 20px;
 }
-table tr:last-child {
+.table tr:last-child {
   border-bottom: 1px !important;
 }
