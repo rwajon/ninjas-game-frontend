@@ -36,7 +36,7 @@ class Game extends Component {
       } else if (countries[i].name.toLowerCase() === country.toLowerCase()) {
         message = `Sorry, the capital of "${countries[i].name}" is "${
           countries[i].capital
-        }"`;
+          }"`;
         break;
       }
     }
@@ -48,16 +48,15 @@ class Game extends Component {
     const { submitAnswer } = this.props;
     const payload = {
       answer: e.target.answer.value,
-      country: document.querySelector('#country')
-        ? document.querySelector('#country').innerHTML
-        : ''
+      country: document.querySelector('#country').innerHTML
     };
-    e.target.answer.value = payload.country ? submitAnswer(payload) && '' : '';
+    submitAnswer(payload);
+    e.target.answer.value = '';
     return false;
   };
 
-  render = () => {
-    const { countries, answer } = this.props;
+  render() {
+    const { profile, countries, answer } = this.props;
     const generatedQuestion = quizGenerator(countries);
     const checkAnswer = Object.keys(answer).length
       ? this.checkAnswer(answer)
@@ -65,48 +64,51 @@ class Game extends Component {
 
     return (
       <div className="container">
-        <Profile />
-        <div className="container shadow-2 radius-3">
-          <div className="center">
-            <form onSubmit={this.handleSubmit}>
-              <div
-                id="question"
-                className="primary card radius-3 bold large-text text-white center-align"
-              >
-                {generatedQuestion.question}
-              </div>
-              <div id="country" className="hide">
-                {generatedQuestion.country}
-              </div>
-              <div className="radius-2 input-field">
-                <div className="card">
-                  <input
-                    type="text"
-                    placeholder="Enter your answer"
-                    name="answer"
-                    id="name"
-                    autoComplete="off"
-                    className="shadow-4 radius-2 medium-padding card medium-text"
-                  />
-                </div>
-                <br />
-                <br />
-                <div className="card">
-                  <button
-                    type="submit"
-                    className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+        <div className="row">
+          <div className="small-screen-4 medium-screen-1 large-screen-1">
+            <Profile profile={profile} />
+          </div>
+          <div className="small-screen-4 medium-screen-3 large-screen-3">
+            <div className="grabGame row shadow-3 black radius-4 text-white">
+              <div className="medium-v-padding">
+                <form onSubmit={this.handleSubmit}>
+                  <div
+                    id="question"
+                    className="card radius-3 bold large-text text-white center-align"
                   >
-                    Answer
+                    {generatedQuestion.question}
+                  </div>
+                  <div id="country" className="hide">
+                    {generatedQuestion.country}
+                  </div>
+                  <div className="row">
+                    <div className="small-screen-3 medium-screen-3 large-screen-3">
+                      <div className="input-field">
+                        <input
+                          type="text"
+                          placeholder="Enter your answer"
+                          name="answer"
+                          id="name"
+                          autoComplete="off"
+                          className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
+                        />
+                      </div>
+                    </div>
+                    <div className="small-screen-1 medium-screen-1 large-screen-1">
+                      <button
+                        type="submit"
+                        className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+                      >
+                        Answer
                   </button>
-                  <button
-                    onClick={this.changeQuestion}
-                    className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
-                  >
-                    Skip
-                  </button>
-                </div>
+                    </div>
+                  </div>
+                  <div className="divider">{' '}</div>
+                </form>
+                <br />
               </div>
-            </form>
+              <div className="divider">{' '}</div>
+            </div>
             <div className="grey container shadow-2 radius-3">
               {checkAnswer ? (
                 <div className="white card radius-2 small-padding center-align">
@@ -114,30 +116,57 @@ class Game extends Component {
                   <img src={checkAnswer.image} alt="" />
                 </div>
               ) : (
-                ''
-              )}
+                  ''
+                )}
+            </div>
+            <div className="clear" />
+            {/* results */}
+            <div className="row">
+              <div className="black card radius-2">
+                <div className="large-padding">
+                  <div className="oneResult wrong">
+                    Gilles <span>Correct</span>
+                  </div>
+                  <div className="oneResult correct">
+                    Gilles <span>Correct</span>
+                  </div>
+                  <div className="oneResult correct">
+                    Gilles <span>Correct</span>
+                  </div>
+                </div>
+                <div className="divider" />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
+
     );
-  };
+  }
 }
 
 Game.propTypes = {
-  countries: PropTypes.array.isRequired,
-  answer: PropTypes.object.isRequired,
-  submitAnswer: PropTypes.func.isRequired
+  names: PropTypes.array.isRequired,
+  profile: PropTypes.object.isRequired,
+  removeName: PropTypes.func.isRequired
 };
 
-export const mapStateToProps = ({ game: { countries, answer } }) => ({
-  countries,
-  answer
-});
+export const mapStateToProps = store => {
+  return {
+    names: store.game.names,
+    profile: store.user.profile,
+    countries: store.game.countries,
+    answer: store.game.answer
+  };
+};
 
-export const mapDispatchToProps = dispatch => ({
-  submitAnswer: payload => dispatch(gameAction.submitAnswer(payload))
-});
+export const mapDispatchToProps = dispatch => {
+  return {
+    submitName: name => dispatch(gameAction.submit(name)),
+    removeName: id => dispatch(gameAction.remove(id)),
+    submitAnswer: payload => dispatch(gameAction.submitAnswer(payload))
+  };
+};
 
 export default connect(
   mapStateToProps,

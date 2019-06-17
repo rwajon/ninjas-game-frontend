@@ -2,14 +2,14 @@
 @import '../../assets/css/_pixels';
 .grabProfileImage {
   padding-top: $small;
-  background: url(../../assets/images/profile_bg.png) no-repeat top center;
+  margin-top: $large;
   background-attachment: fixed;
   background-size: contain;
 }
 .grabProfileImage img {
   border-radius: 50%;
-  max-width: 200px;
-  min-width: 80px;
+  max-width: 90px;
+  min-width: 20px;
 
   border: ($small/3) solid $light;
 }
