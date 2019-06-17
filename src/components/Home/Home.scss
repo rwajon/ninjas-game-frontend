@@ -1,26 +1,60 @@
 $bg-color: #fff;
 $text-color: white;
 
-.App {
-  text-align: center;
-  .App-section {
-    background-color: $bg-color;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: $text-color;
+body{
+  background:url(../../assets/images/abs-01.png)  no-repeat center top;
+  background-attachment:fixed;
+  background-size: 100%;
+  position: relative;
+  height: 100%;
+}
+body:before{
+  content: "";
+  position: absolute;
+  top:0;bottom:0;
+  left: 0;right:0;
+  width: 100%;
+  height: 100%;
+  z-index:0;
+  /* background:red url(../../assets/images/abstract.jpg) no-repeat center bottom; */
+  background-attachment: fixed;
+  background-size: 100%;
+  opacity: 0.3;
+}
+.grabName{
+  max-width: 400px;
+  float: left;
+  margin:100px 0 0 0;
+  position: relative;
+  z-index: 2;
+}
+.grabName img{margin:0;width: 100%}
+.grabGraphic{
+  margin:0;float: left;
+}
+.grabGraphic img{
+  margin:80px 0 0 100px;
+  max-width: 600px;
+}
+.lights{
+  position: absolute;top:0;
+  width: 100%;height:100%;z-index: 3;
+  background:rgba(0,0,0,.65);
+}
+@media screen and (min-width: 700px)  {
+  .grabName{
+    width:50%;
   }
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-    pointer-events: none;
+  .grabGraphic{
+    width:50%;
   }
-
-  .App-link {
-    color: #61dafb;
+}
+@media screen and (max-width: 700px)  {
+  .grabName{
+    width:100%;
+  }
+  .grabGraphic{
+    width:100%;
   }
 }
 
