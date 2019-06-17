@@ -1,7 +1,7 @@
 @import '../../assets/css/_colors';
 @import '../../assets/css/_pixels';
-.grabGame{
-margin-top:25px  
+.grabGame {
+  margin-top: 25px;
 }
 .nameAdded {
   border: #a7a7a8 1px solid;
@@ -11,22 +11,8 @@ margin-top:25px
 }
 
 .submit {
-  padding-top: 15px!important;
-  padding-bottom: 15px!important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
   margin-left: 15px !important;
   margin-top: 15px;
 }
-
-.oneResult{
-  padding:15px 1%;
-  margin:3px 0.5%;
-  width: 46%;float:left
-}
-.oneResult span{
- float:right
-}
-
-
-.correct{background: olivedrab!important}
-.wrong{background:$danger}
-

@@ -69,9 +69,18 @@ module.exports = {
     },
     isAuth: true
   },
-  results: [
+  levels: [
     { level: 'Geography', points: 1 },
     { level: 'Public Figures', points: 1 },
     { level: 'Programming Languages', points: 1 }
+  ],
+  results: [
+    { name: 'John Doe', point: 0 },
+    { name: 'Smill Carter', point: 0 },
+    { name: 'John Doe', point: 1 },
+    { name: 'John Doe', point: 0 }
   ]
+  // results: [
+  //   'correct', 'incorrect'
+  // ]
 };
