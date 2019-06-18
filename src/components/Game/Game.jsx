@@ -8,7 +8,8 @@ import Profile from '../Profile/Profile';
 import Quiz from './Quiz/Quiz';
 import success from '../../assets/images/celebration.gif';
 import failure from '../../assets/images/nope.gif';
-import Answer from './Answer/Answer';
+import Answer from '../Game/Answer/Answer';
+
 class Game extends Component {
   checkAnswer = ({ country, answer }) => {
     const { countries } = this.props;
