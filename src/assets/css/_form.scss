@@ -10,10 +10,9 @@ form {
 .input-field input,
 .input-field textarea {
   padding: 1em 1.5%;
-  width: 97%;
   margin: 0.5em 0;
-  border: 1px solid $grey;
-  border-radius: 25px;
+ 
+  border-radius: 10px;
 }
 .input-field textarea {
   resize: vertical;

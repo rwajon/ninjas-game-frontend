@@ -59,8 +59,7 @@ module.exports = {
       { name: 'Zambia', capital: 'Lusaka' },
       { name: 'Zimbabwe', capital: 'Harare' }
     ],
-    answer: {},
-    attempts: []
+    answer: {}
   },
   user: {
     profile: user.profile,

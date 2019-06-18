@@ -5,21 +5,11 @@ import '../../assets/css/style.scss';
 import './Game.scss';
 import { gameAction } from '../../actions';
 import Profile from '../Profile/Profile';
-import quizGenerator from '../../helpers/quizGenerator';
+import Quiz from './Quiz/Quiz';
 import success from '../../assets/images/celebration.gif';
 import failure from '../../assets/images/nope.gif';
 import Answer from './Answer/Answer';
 class Game extends Component {
-  changeQuestion = e => {
-    e.preventDefault();
-    const { countries } = this.props;
-    const { question, country } = quizGenerator(countries);
-
-    document.querySelector('#question').innerHTML = question;
-    document.querySelector('#country').innerHTML = country;
-    return question;
-  };
-
   checkAnswer = ({ country, answer }) => {
     const { countries } = this.props;
     let message = '';
@@ -56,8 +46,8 @@ class Game extends Component {
   };
 
   render() {
-    const { countries, answer } = this.props;
-    const generatedQuestion = quizGenerator(countries);
+    const { profile, answer, question } = this.props;
+
     const checkAnswer = Object.keys(answer).length
       ? this.checkAnswer(answer)
       : null;
@@ -68,46 +58,9 @@ class Game extends Component {
           <div className="small-screen-4 medium-screen-1 large-screen-1">
             <Profile />
           </div>
-          <div className="small-screen-4 medium-screen-3 large-screen-3">
-            <div className="grabGame row shadow-3 black-opacity-3 radius-4 text-white">
-              <div className="medium-v-padding">
-                <form onSubmit={this.handleSubmit}>
-                  <div
-                    id="question"
-                    className="card radius-3 bold large-text text-white center-align"
-                  >
-                    {generatedQuestion.question}
-                  </div>
-                  <div id="country" className="hide">
-                    {generatedQuestion.country}
-                  </div>
-                  <div className="row">
-                    <div className="small-screen-3 medium-screen-3 large-screen-3">
-                      <div className="input-field">
-                        <input
-                          type="text"
-                          placeholder="Enter your answer"
-                          name="answer"
-                          id="name"
-                          autoComplete="off"
-                          className="shadow-4 radius-2 medium-padding card medium-text large-screen-3"
-                        />
-                      </div>
-                    </div>
-                    <div className="small-screen-1 medium-screen-1 large-screen-1">
-                      <button
-                        type="submit"
-                        className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
-                      >
-                        Answer
-                      </button>
-                    </div>
-                  </div>
-                  <div className="divider"> </div>
-                </form>
-                <br />
-              </div>
-              <div className="divider"> </div>
+          <div className="small-screen-4 medium-screen-3 large-screen-3 ">
+            <div>
+              <Quiz answer={answer} question={question} />
             </div>
             <div className="grey container shadow-2 radius-3">
               {checkAnswer ? (
