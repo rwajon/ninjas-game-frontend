@@ -1,60 +1,69 @@
 $bg-color: #fff;
 $text-color: white;
 
-body{
-  background:#000000 url(../../assets/images/abs-01.png)  no-repeat center top;
-  background-attachment:fixed;
+body {
+  background: #000000 url(../../assets/images/abs-01.jpg) center top;
+  background-attachment: fixed;
   background-size: 100%;
   position: relative;
   height: 100%;
 }
-body:before{
-  content: "";
+body:before {
+  content: '';
   position: absolute;
-  top:0;bottom:0;
-  left: 0;right:0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  z-index:0;
+  z-index: 0;
   /* background:red url(../../assets/images/abstract.jpg) no-repeat center bottom; */
   background-attachment: fixed;
   background-size: 100%;
   opacity: 0.3;
 }
-.grabName{
+.grabName {
   max-width: 400px;
   float: left;
-  margin:100px 0 0 0;
+  margin: 100px 0 0 0;
   position: relative;
   z-index: 2;
 }
-.grabName img{margin:0;width: 100%}
-.grabGraphic{
-  margin:0;float: left;
+.grabName img {
+  margin: 0;
+  width: 100%;
 }
-.grabGraphic img{
-  margin:80px 0 0 100px;
+.grabGraphic {
+  margin: 0;
+  float: left;
+}
+.grabGraphic img {
+  margin: 80px 0 0 100px;
   max-width: 600px;
 }
-.lights{
-  position: absolute;top:0;
-  width: 100%;height:100%;z-index: 3;
-  background:rgba(0,0,0,.65);
+.lights {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.65);
 }
-@media screen and (min-width: 700px)  {
-  .grabName{
-    width:50%;
+@media screen and (min-width: 700px) {
+  .grabName {
+    width: 50%;
   }
-  .grabGraphic{
-    width:50%;
+  .grabGraphic {
+    width: 50%;
   }
 }
-@media screen and (max-width: 700px)  {
-  .grabName{
-    width:100%;
+@media screen and (max-width: 700px) {
+  .grabName {
+    width: 100%;
   }
-  .grabGraphic{
-    width:100%;
+  .grabGraphic {
+    width: 100%;
   }
 }
 
