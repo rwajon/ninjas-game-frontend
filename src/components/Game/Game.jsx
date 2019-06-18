@@ -36,7 +36,7 @@ class Game extends Component {
       } else if (countries[i].name.toLowerCase() === country.toLowerCase()) {
         message = `Sorry, the capital of "${countries[i].name}" is "${
           countries[i].capital
-          }"`;
+        }"`;
         break;
       }
     }
@@ -100,14 +100,14 @@ class Game extends Component {
                         className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
                       >
                         Answer
-                  </button>
+                      </button>
                     </div>
                   </div>
-                  <div className="divider">{' '}</div>
+                  <div className="divider"> </div>
                 </form>
                 <br />
               </div>
-              <div className="divider">{' '}</div>
+              <div className="divider"> </div>
             </div>
             <div className="grey container shadow-2 radius-3">
               {checkAnswer ? (
@@ -116,8 +116,8 @@ class Game extends Component {
                   <img src={checkAnswer.image} alt="" />
                 </div>
               ) : (
-                  ''
-                )}
+                ''
+              )}
             </div>
             <div className="clear" />
             {/* results */}
@@ -138,9 +138,8 @@ class Game extends Component {
               </div>
             </div>
           </div>
-        </div >
-      </div >
-
+        </div>
+      </div>
     );
   }
 }
