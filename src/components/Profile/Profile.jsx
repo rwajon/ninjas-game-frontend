@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Logout from '../Logout/Logout';
-import Buttons from '../Buttons/Buttons';
 import Levels from '../Levels/Levels';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
@@ -31,12 +30,11 @@ export class Profile extends Component {
             </h1>
           </div>
           <div className="clear" />
-          <Levels />
+          <div className="medium-padding center-align">Result: 0/10</div>
           <div className="clear" />
           <Logout />
           <br />
         </div>
-        <Buttons />
       </div>
     );
   }

@@ -77,7 +77,4 @@ module.exports = {
     { name: 'John Doe', point: 1 },
     { name: 'John Doe', point: 0 }
   ]
-  // results: [
-  //   'correct', 'incorrect'
-  // ]
 };

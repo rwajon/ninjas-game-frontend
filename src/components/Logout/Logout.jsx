@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logout from '../../helpers/logout';
+import Button from '../Common/Button';
 import '../../assets/css/style.scss';
 
 export default class Logout extends Component {
@@ -8,13 +9,12 @@ export default class Logout extends Component {
     return (
       <div className="container">
         <div className="card center-align">
-          <button
+          <Button
+            text="Logout"
             type="button"
-            className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
             onClick={logout}
-          >
-            Logout
-          </button>
+            className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
+          />
         </div>
       </div>
     );
