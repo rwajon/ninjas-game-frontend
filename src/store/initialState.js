@@ -63,11 +63,9 @@ module.exports = {
     attempts: []
   },
   user: {
-    profile: {
-      firstName: 'john',
-      lastName: 'doe'
-    },
-    isAuth: true
+    profile: user.profile,
+    isAuth: user.isAuth,
+    errors: null
   },
   results: [
     { level: 'Geography', points: 1 },

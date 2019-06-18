@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
+import Auth from './Auth/Auth';
 import Home from './Home/Home';
 import Game from './Game/Game';
 
@@ -18,6 +19,7 @@ export const Routes = ({ isAuth }) => (
       path="/home"
       render={props => <Home {...props} isAuth={isAuth} />}
     />
+    <Route exact path="/auth/:token" render={props => <Auth {...props} />} />
     <Route
       exact
       path="/game"
