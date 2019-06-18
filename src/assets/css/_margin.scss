@@ -1,0 +1,60 @@
+/* Margin Formatting */
+.xxlarge-margin {
+  margin: ($xsmall * 12);
+}
+.xlarge-margin {
+  margin: ($xsmall * 6);
+}
+.large-margin {
+  margin: ($xsmall * 3);
+}
+.medium-margin {
+  margin: ($xsmall * 2);
+}
+.small-margin {
+  margin: $xsmall;
+}
+
+// margin. Horizontal
+.xxlarge-h-margin {
+  margin-left: ($xsmall * 6);
+  margin-right: ($xsmall * 6);
+}
+.xlarge-h-margin {
+  margin-left: ($xsmall * 4);
+  margin-right: ($xsmall * 4);
+}
+.large-h-margin {
+  margin-left: ($xsmall * 3);
+  margin-right: ($xsmall * 3);
+}
+.medium-h-margin {
+  margin-left: ($xsmall * 2);
+  margin-right: ($xsmall * 2);
+}
+.small-h-margin {
+  margin-left: $xsmall;
+  margin-right: $xsmall;
+}
+
+// PADING. veritical
+.xxlarge-v-margin {
+  margin-top: ($xsmall * 6);
+  margin-bottom: ($xsmall * 6);
+}
+.xlarge-v-margin {
+  margin-top: ($xsmall * 4);
+  margin-bottom: ($xsmall * 4);
+}
+.large-v-margin {
+  margin-top: ($xsmall * 3);
+  margin-bottom: ($xsmall * 3);
+}
+.medium-v-margin {
+  margin-top: ($xsmall * 2);
+  margin-bottom: ($xsmall * 2);
+}
+.small-v-margin {
+  margin-top: $xsmall;
+  margin-bottom: $xsmall;
+}
