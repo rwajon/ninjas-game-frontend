@@ -8,7 +8,7 @@ import Profile from '../Profile/Profile';
 import quizGenerator from '../../helpers/quizGenerator';
 import success from '../../assets/images/celebration.gif';
 import failure from '../../assets/images/nope.gif';
-
+import Answer from './Answer/Answer';
 class Game extends Component {
   changeQuestion = e => {
     e.preventDefault();
@@ -123,17 +123,7 @@ class Game extends Component {
             {/* results */}
             <div className="row">
               <div className="black card radius-2">
-                <div className="large-padding">
-                  <div className="oneResult wrong">
-                    Gilles <span>Correct</span>
-                  </div>
-                  <div className="oneResult correct">
-                    Gilles <span>Correct</span>
-                  </div>
-                  <div className="oneResult correct">
-                    Gilles <span>Correct</span>
-                  </div>
-                </div>
+                <Answer />
                 <div className="divider" />
               </div>
             </div>

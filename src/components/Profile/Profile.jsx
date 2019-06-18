@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Logout from '../Logout/Logout';
 import Buttons from '../Buttons/Buttons';
-import Results from '../Results/Results';
+import Levels from '../Levels/Levels';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
@@ -11,7 +11,7 @@ import './Profile.scss';
 export class Profile extends Component {
   static propTypes = {
     prop: PropTypes
-  }
+  };
 
   render() {
     const { profile } = this.props;
@@ -31,7 +31,7 @@ export class Profile extends Component {
             </h1>
           </div>
           <div className="clear" />
-          <Results />
+          <Levels />
           <div className="clear" />
           <Logout />
           <br />
@@ -39,16 +39,16 @@ export class Profile extends Component {
         <Buttons />
       </div>
     );
-
   }
 }
 
 const mapStateToProps = ({ user: { profile } }) => ({
   profile
-})
+});
 
-const mapDispatchToProps = {
+const mapDispatchToProps = {};
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);
