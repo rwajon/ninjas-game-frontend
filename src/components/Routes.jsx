@@ -6,9 +6,11 @@ import { PropTypes } from 'prop-types';
 import Auth from './Auth/Auth';
 import Home from './Home/Home';
 import Game from './Game/Game';
+import SokectIo from './SocketIo/SocketIo';
 
 export const Routes = ({ isAuth }) => (
   <Switch>
+    <Route exact path="/socket" render={props => <SokectIo {...props} />} />
     <Route
       exact
       path="/"

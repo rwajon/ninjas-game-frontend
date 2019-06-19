@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 
 dotenv.config();
-console.log(process.env.REACT_APP_URL_BACKEND);
 const { REACT_APP_URL_BACKEND } = process.env;
 const HOST = `${window.location.protocol}//${window.location.hostname}:${
   window.location.port

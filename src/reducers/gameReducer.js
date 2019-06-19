@@ -3,21 +3,23 @@ import * as types from '../actions-types';
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case types.game.SUBMIT_NAME:
+    case types.game.SAVE_GEOGRAPHY_ATTEMPTS:
       return {
         ...state,
-        names: [...state.names, payload]
+        attempts: {
+          ...state.attempts,
+          geography: [...state.attempts.geography, payload]
+        }
       };
-    case types.game.REMOVE_NAME:
+    case types.game.ADD_MEMBER:
       return {
         ...state,
-        names: state.names.filter((name, key) => key !== parseInt(payload, 10))
+        members: payload
       };
-
-    case types.game.SUBMIT_ANSWER:
+    case types.game.LEAVE_GAME:
       return {
         ...state,
-        answer: { country: payload.country, answer: payload.answer }
+        members: payload
       };
     default:
       return state;

@@ -22,7 +22,7 @@ const Answer = props => {
   );
 };
 
-const mapStateToProps = ({ results }) => ({
+const mapStateToProps = ({ game: { results } }) => ({
   results
 });
 

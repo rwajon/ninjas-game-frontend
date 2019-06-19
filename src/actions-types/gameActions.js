@@ -1,3 +1,3 @@
-export const SUBMIT_NAME = 'SUBMIT_NAME';
-export const SUBMIT_ANSWER = 'SUBMIT_ANSWER';
-export const REMOVE_NAME = 'REMOVE_NAME';
+export const ADD_MEMBER = 'ADD_MEMBER';
+export const LEAVE_GAME = 'LEAVE_GAME';
+export const SAVE_GEOGRAPHY_ATTEMPTS = 'SAVE_GEOGRAPHY_ATTEMPTS';
