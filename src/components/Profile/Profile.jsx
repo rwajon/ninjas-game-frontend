@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import * as helper from '../../helpers';
+import LeaveGame from './LeaveGame/LeaveGame';
 import Logout from '../Logout/Logout';
-import Levels from '../Levels/Levels';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
 
 export class Profile extends Component {
-  static propTypes = {
-    prop: PropTypes
-  };
-
   render() {
-    const { profile } = this.props;
+    const { profile, attempts } = this.props;
     return (
       <div className="container">
         <div className="row shadow-3 black-opacity-3 radius-4 text-white">
@@ -30,9 +27,15 @@ export class Profile extends Component {
             </h1>
           </div>
           <div className="clear" />
-          <div className="medium-padding center-align">Result: 0/10</div>
+          <div className="medium-padding center-align">
+            Geography: {helper.getScore(attempts.geography)} / 10
+            <br />
+            <br />
+            Computing: {helper.getScore(attempts.computing)} / 10
+          </div>
           <div className="clear" />
           <Logout />
+          <LeaveGame />
           <br />
         </div>
       </div>
@@ -40,13 +43,14 @@ export class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ user: { profile } }) => ({
-  profile
+const mapStateToProps = ({ user: { profile }, game: { attempts } }) => ({
+  profile,
+  attempts
 });
 
 const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Profile);

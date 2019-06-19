@@ -1,18 +1,37 @@
 import * as types from '../actions-types';
 
-export const get = payload => ({
-  type: types.game.SUBMIT_NAME,
+export const saveGeographyAttempts = payload => ({
+  type: types.game.SAVE_GEOGRAPHY_ATTEMPTS,
   payload
 });
 
-export const submit = payload => dispatch => dispatch(get(payload));
+export const addMember = payload => {
+  let isMember = false;
+  let allMembersTwo = [];
+  const { member, members, allMembers } = payload;
+  allMembers.forEach(val => {
+    if (val.id === member.id) {
+      allMembersTwo = [...members, member];
+      console.log('here=>', allMembersTwo);
+      isMember = true;
+    }
+  });
+  if (members.length) {
+    console.log('allMembers=>', [...allMembers, member]);
+  }
+  console.log('member action --> one', member);
+  console.log('members action --> two', members);
+  return {
+    type: types.game.ADD_MEMBER,
+    // payload: isMember ? members : [...members, member]
+    payload: isMember ? members : [...members, member]
+    // payload: allMembers
+  };
+};
 
-export const remove = payload => ({
-  type: types.game.REMOVE_NAME,
-  payload
-});
-
-export const submitAnswer = payload => ({
-  type: types.game.SUBMIT_ANSWER,
-  payload
-});
+export const leaveGame = payload => {
+  return {
+    type: types.game.LEAVE_GAME,
+    payload
+  };
+};
