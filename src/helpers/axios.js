@@ -3,9 +3,7 @@ import axios from 'axios';
 
 dotenv.config();
 const { REACT_APP_URL_BACKEND } = process.env;
-const HOST = `${window.location.protocol}//${window.location.hostname}:${
-  window.location.port
-}`;
+const HOST = 'https://ninjas-game.herokuapp.com/game';
 export default ({ token, URL }) =>
   axios.create({
     baseURL:

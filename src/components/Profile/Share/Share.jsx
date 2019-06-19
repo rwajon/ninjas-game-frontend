@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Button from '../../commons/Button';
 import { socketIOClient } from '../../../helpers';
 import { gameAction } from '../../../actions';
+import { url as urlHelper } from '../../../helpers';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -12,14 +13,11 @@ import {
   FacebookIcon,
   TwitterIcon
 } from 'react-share';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 class Share extends Component {
   render() {
     const { profile, room } = this.props;
-    const { REACT_APP_URL_FRONTEND } = process.env;
+    const { reactUrl, herokuUrl, amazonUrl, defaultUrl } = urlHelper.frontend;
     return (
       <div>
         <div className="container small-padding center-align radius-2">
@@ -32,7 +30,9 @@ class Share extends Component {
             body={`Hello, ${profile.firstName} ${
               profile.lastName
             } invited you to play this game.`}
-            url={`${REACT_APP_URL_FRONTEND}/game/${room.name}`}
+            url={`${reactUrl || amazonUrl || herokuUrl || defaultUrl}/game/${
+              room.name
+            }`}
             openWindow={true}
           >
             <EmailIcon size={45} round />
@@ -42,7 +42,9 @@ class Share extends Component {
             className="small-h-margin"
             style={{ display: 'inline-block', cursor: 'pointer' }}
             subject="Ninjas Guess Game"
-            url={`${REACT_APP_URL_FRONTEND}/game/${room.name}`}
+            url={`${reactUrl || amazonUrl || herokuUrl || defaultUrl}/game/${
+              room.name
+            }`}
             quote="Ninjas Guess Game"
           >
             <FacebookIcon size={45} round />
@@ -52,7 +54,9 @@ class Share extends Component {
             className="small-h-margin"
             style={{ display: 'inline-block', cursor: 'pointer' }}
             subject="Ninjas Guess Game"
-            url={`${REACT_APP_URL_FRONTEND}/game/${room.name}`}
+            url={`${reactUrl || amazonUrl || herokuUrl || defaultUrl}/game/${
+              room.name
+            }`}
           >
             <TwitterIcon size={45} round />
           </TwitterShareButton>
