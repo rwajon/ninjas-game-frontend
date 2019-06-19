@@ -32,12 +32,14 @@ export const Routes = ({ isAuth, profile }) => (
     />
   </Switch>
 );
+
 Routes.propTypes = {
   isAuth: PropTypes.bool
 };
 Routes.defaultProps = {
   isAuth: false
 };
+
 export const mapStateToProps = ({ user: { isAuth, profile } }) => ({
   isAuth,
   profile

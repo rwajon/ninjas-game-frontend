@@ -1,3 +1,6 @@
 export const ADD_MEMBER = 'ADD_MEMBER';
+export const CREATE_ROOM = 'CREATE_ROOM';
 export const LEAVE_GAME = 'LEAVE_GAME';
+export const REPLAY_GAME = 'REPLAY_GAME';
+export const CHANGE_QUESTION = 'CHANGE_QUESTION';
 export const SAVE_GEOGRAPHY_ATTEMPTS = 'SAVE_GEOGRAPHY_ATTEMPTS';
