@@ -3,6 +3,7 @@ export default countries => {
 
   return {
     question: `What is the capital of ${countries[key].name} ?`,
-    country: countries[key].name
+    country: countries[key].name,
+    capital: countries[key].capital
   };
 };
