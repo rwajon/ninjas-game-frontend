@@ -26,7 +26,7 @@ class LeaveGame extends Component {
       room: { members }
     } = this.props;
     if (!members.length) {
-      window.location.replace('/');
+      window.location.replace('/game');
     }
   }
 

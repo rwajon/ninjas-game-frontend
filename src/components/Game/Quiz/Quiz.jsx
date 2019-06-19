@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './Quiz.scss';
 import success from '../../../assets/images/celebration.gif';
 import failure from '../../../assets/images/nope.gif';
-import { geographyQuizGenerator } from '../../../helpers';
+import { compareUser, socketIOClient } from '../../../helpers';
 import { gameAction } from '../../../actions';
 import Input from '../../commons/Input/Input';
 
@@ -11,36 +11,58 @@ class Quiz extends Component {
   state = {
     country: '',
     capital: '',
-    question: '',
     answer: '',
     count: 1,
     message: '',
-    image: ''
+    image: '',
+    question: ''
   };
 
+  countDown() {
+    const interval = setInterval(() => {
+      const { seconds } = this.state;
+      if (seconds === 0) {
+        clearInterval(interval);
+        this.changeQuestion();
+      } else {
+        this.setState({
+          seconds: seconds - 1
+        });
+      }
+    }, 1000);
+  }
+
   componentDidMount() {
-    const { countries } = this.props;
-    const { country, capital, question } = geographyQuizGenerator(countries);
-    this.setState({
-      country,
-      capital,
-      question
+    socketIOClient.on('changeQuestion', updatedRoom => {
+      const { count } = this.state;
+      const { country, capital, question } = updatedRoom;
+      const { onChangeQuestion, room, roomName } = this.props;
+      if (roomName === updatedRoom.name && count < 10) {
+        onChangeQuestion({ ...room, country, capital, question });
+        this.setState({
+          country,
+          capital,
+          question
+        });
+      }
+    });
+
+    socketIOClient.on('answerQuestion', (point, member, updatedRoom) => {
+      const { saveGeographyAttempts } = this.props;
+      saveGeographyAttempts(updatedRoom);
+    });
+
+    socketIOClient.on('gameReplayed', room => {
+      const { onReplayGame, roomName } = this.props;
+      if (roomName === room.name) {
+        onReplayGame(room);
+      }
     });
   }
 
   changeQuestion = () => {
-    const { countries } = this.props;
-    const { count } = this.state;
-    if (count < 10) {
-      const { country, capital, question } = geographyQuizGenerator(countries);
-      this.setState({
-        country,
-        question,
-        capital,
-        count: count + 1
-      });
-    }
-    return count;
+    const { roomName } = this.props;
+    return socketIOClient.emit('changeQuestion', roomName);
   };
 
   handleChange = e => {
@@ -49,103 +71,136 @@ class Quiz extends Component {
     });
   };
 
+  replayGame = () => {
+    const { roomName, profile } = this.props;
+    return socketIOClient.emit('replayGame', profile, roomName);
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     let message = '';
     let image = '';
-    const { saveGeographyAttempts } = this.props;
-    const { answer, country, capital, count } = this.state;
+    let point = 0;
+    const {
+      roomName,
+      profile,
+      room: { country, capital }
+    } = this.props;
+    const { answer } = this.state;
 
-    if (count < 10) {
-      if (capital.toLowerCase() === answer.toLowerCase()) {
-        image = success;
-        message = 'Congratulation';
-        saveGeographyAttempts(1);
-      } else {
-        image = failure;
-        message = `Sorry, the capital of "${country}" is "${capital}"`;
-        saveGeographyAttempts(0);
-      }
-      this.setState({
-        answer: '',
-        message,
-        image
-      });
-
+    if (capital.toLowerCase() === answer.toLowerCase()) {
+      point = 1;
+      image = success;
+      message = '';
+      socketIOClient.emit('answerQuestion', point, profile, roomName);
       this.changeQuestion();
+    } else {
+      point = 0;
+      image = failure;
+      message = `Sorry, the capital of "${country}" is "${capital}"`;
+      socketIOClient.emit('answerQuestion', point, profile, roomName);
     }
+    this.setState({
+      answer: '',
+      message,
+      image
+    });
 
     return message;
   };
 
   render() {
-    const { count, question, answer, message, image } = this.state;
+    const { room, profile } = this.props;
+    const { answer, message } = this.state;
     return (
-      <div className="grabGame row shadow-3 radius-1 text-white black-opacity-3 shadow-5">
-        <div className="medium-v-padding ">
-          <span className="danger large-h-padding radius-3 bold medium-text text-white center-align">
-            {count} / 10
-          </span>
-          <br />
-          <div className="primary card radius-3 bold large-text text-white center-align">
-            {question}
+      <div className="grabGame shadow-3 radius-1 text-white black-opacity-3 small-v-padding shadow-5">
+        <div className="card radius-3 bold large-text text-white center-align">
+          {room.question}
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="card input-field">
+            <Input
+              name="name"
+              type="text"
+              value={answer}
+              className="medium-text card grey-opacity"
+              onChange={this.handleChange}
+              autoComplete="off"
+              placeholder="Type your answer here"
+            />
           </div>
-          <form onSubmit={this.handleSubmit}>
-            <div className="card input-field">
-              <Input
-                name="name"
-                type="text"
-                value={answer}
-                className="medium-text card grey-opacity"
-                onChange={this.handleChange}
-                autoComplete="off"
-              />
-            </div>
-            <div className="card">
-              <button
-                type="submit"
-                className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
-              >
-                Answer
-              </button>
+          <div className="card">
+            <button
+              type="submit"
+              className="radius-4 button primary text-white center-align large-v-padding large-text small-h-margin"
+            >
+              Answer
+            </button>
+            {room.name === 'public' ? (
               <button
                 type="button"
                 onClick={e => this.changeQuestion()}
-                className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+                className="radius-4 button primary text-white center-align large-v-padding large-text small-h-margin"
               >
                 Next
               </button>
-              {message === false ? (
-                <div className="white text-black card radius-2 small-padding center-align grey-opacity">
-                  <h3>{message}</h3>
-                  <img src={image} alt="" />
-                </div>
-              ) : (
-                ''
-              )}
-            </div>
-          </form>
-          <br />
-        </div>
-        <div className="divider"> </div>
+            ) : (
+              ''
+            )}
+            {compareUser(profile, room.owner) ? (
+              <span>
+                <button
+                  type="button"
+                  onClick={e => this.changeQuestion()}
+                  className="radius-4 button primary text-white center-align large-v-padding large-text small-h-margin"
+                >
+                  Next
+                </button>
+                <button
+                  type="button"
+                  onClick={e => this.replayGame()}
+                  className="radius-4 button primary text-white center-align large-v-padding large-text small-h-margin"
+                >
+                  Reset
+                </button>
+              </span>
+            ) : (
+              ''
+            )}
+
+            {message ? (
+              <div className="white text-black card radius-2 small-padding center-align grey-opacity">
+                <h3>{message}</h3>
+              </div>
+            ) : (
+              ''
+            )}
+          </div>
+        </form>
       </div>
     );
   }
 }
 
 const mapStateToProps = ({
+  user: { profile },
   game: {
     attempts,
-    geography: { countries }
+    geography: { countries },
+    room
   }
 }) => ({
+  profile,
   countries,
-  attempts
+  attempts,
+  room
 });
 
 export const mapDispatchToProps = dispatch => ({
   saveGeographyAttempts: payload =>
-    dispatch(gameAction.saveGeographyAttempts(payload))
+    dispatch(gameAction.saveGeographyAttempts(payload)),
+  onChangeQuestion: payload => dispatch(gameAction.changeQuestion(payload)),
+  onReplayGame: payload => dispatch(gameAction.replayGame(payload))
 });
 
 export default connect(

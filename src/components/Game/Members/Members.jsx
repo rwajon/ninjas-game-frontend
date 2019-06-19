@@ -32,7 +32,7 @@ class Members extends Component {
             >
               <img
                 src={member.image || defaultPicture}
-                className="center shadow-4 left"
+                className="shadow-4"
                 alt="profile"
                 style={{ width: '50px', borderRadius: '50%' }}
               />
