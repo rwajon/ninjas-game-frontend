@@ -1,6 +1,16 @@
 $bg-color: #fff;
 $text-color: white;
 
+#Home {
+}
+body {
+  background: #000000 url(../../assets/images/abs-01.jpg) center top;
+  background-attachment: fixed;
+  background-size: 100%;
+  position: relative;
+  height: 100%;
+}
+
 .grabName {
   max-width: 400px;
   width: 100%;

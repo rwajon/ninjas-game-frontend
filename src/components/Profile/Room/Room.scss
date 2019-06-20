@@ -1,0 +1,52 @@
+@import '../../../assets/css/colors';
+@import '../../../assets/css/pixels';
+@import '../../../assets/css/radius';
+@import '../../../assets/css/grid';
+
+#modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-button {
+  padding: 12px 30px;
+  border: 0px;
+  background: $danger;
+  margin: 0px 20px;
+  border-radius: 20px;
+  color: $white;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 2% auto;
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 150px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.input {
+  border: #888 1px solid;
+  border-radius: 15px;
+}

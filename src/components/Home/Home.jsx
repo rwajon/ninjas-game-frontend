@@ -1,9 +1,9 @@
-import React from 'react';
+import React from './node_modules/react';
 import './Home.scss';
 import '../../assets/css/style.scss';
 import logo from '../../assets/images/logo-01.png';
 import ninja from '../../assets/images/ninja9.png';
-import dotenv from 'dotenv';
+import dotenv from './node_modules/dotenv';
 dotenv.config();
 export default class Home extends React.Component {
   render() {

@@ -5,6 +5,7 @@ import geographyQuizGenerator from './geographyQuizGenerator';
 import checkGeographyAnswer from './checkGeographyAnswer';
 import getScore from './getScore';
 import socketIOClient from './socketIOClient';
+import compareUser from './compareUser';
 
 export {
   fetch,
@@ -13,5 +14,6 @@ export {
   checkGeographyAnswer,
   geographyQuizGenerator,
   getScore,
-  socketIOClient
+  socketIOClient,
+  compareUser
 };

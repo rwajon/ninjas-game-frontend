@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from './node_modules/react';
+import PropTypes from './node_modules/prop-types';
+import { connect } from './node_modules/react-redux';
 import * as helper from '../../helpers';
 import LeaveGame from './LeaveGame/LeaveGame';
 import Logout from '../Logout/Logout';
+import Room from './Room/Room';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
@@ -36,6 +37,7 @@ export class Profile extends Component {
           <div className="clear" />
           <Logout />
           <LeaveGame />
+          <Room />
           <br />
         </div>
       </div>

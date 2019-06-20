@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from './node_modules/react';
+import PropTypes from './node_modules/prop-types';
+import { connect } from './node_modules/react-redux';
 import './Members.scss';
 import defaultPicture from '../../../assets/images/profile_plaholder.png';
 import { socketIOClient } from '../../../helpers';

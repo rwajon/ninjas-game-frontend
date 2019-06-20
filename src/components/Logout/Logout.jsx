@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from './node_modules/react';
+import { connect } from './node_modules/react-redux';
 import logout from '../../helpers/logout';
-import Button from '../Common/Button';
+import Button from '../commons/Button';
 import '../../assets/css/style.scss';
 
 export default class Logout extends Component {

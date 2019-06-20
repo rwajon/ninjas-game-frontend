@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from './node_modules/react';
+import { connect } from './node_modules/react-redux';
 import './Quiz.scss';
 import success from '../../../assets/images/celebration.gif';
 import failure from '../../../assets/images/nope.gif';
