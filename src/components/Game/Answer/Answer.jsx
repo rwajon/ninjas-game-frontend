@@ -7,7 +7,7 @@ const Answer = props => {
   const { results } = props;
   return (
     <div className="small-padding">
-      {results.map((result, index) => {
+      {(results || []).map((result, index) => {
         return (
           <div
             className={`oneResult ${result.point ? 'correct' : 'wrong'}`}

@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Button from '../../Common/Button';
+import Button from '../../commons/Button';
 import { socketIOClient } from '../../../helpers';
 import { gameAction } from '../../../actions';
 
 class LeaveGame extends Component {
   leaveGamingRoom = e => {
-    const { profile } = this.props;
-    socketIOClient.emit('leaveGame', profile.id);
-    window.location.replace('/');
+    const { profile, roomName } = this.props;
+    socketIOClient.emit('leaveGame', profile, roomName);
+    window.location.replace('/game');
   };
 
   componentDidMount() {
-    socketIOClient.on('leaveGame', userId => {
-      const { leaveGame, members, profile } = this.props;
-      socketIOClient.emit('leaveGame', userId);
-      leaveGame(members.filter(member => member.id !== userId));
+    socketIOClient.on('leftGame', room => {
+      const { leaveGame, roomName } = this.props;
+      if (roomName === room.name) {
+        leaveGame(room);
+      }
     });
   }
 
+  componentDidUpdate() {
+    const {
+      room: { members }
+    } = this.props;
+    if (!members.length) {
+      window.location.replace('/');
+    }
+  }
+
   render() {
+    const { roomName } = this.props;
     return (
       <div className="container">
         <div className="card center-align">
@@ -36,9 +47,10 @@ class LeaveGame extends Component {
   }
 }
 
-const mapStateToProps = ({ game: { members }, user: { profile } }) => ({
+const mapStateToProps = ({ game: { members, room }, user: { profile } }) => ({
   members,
-  profile
+  profile,
+  room
 });
 
 export const mapDispatchToProps = dispatch => ({

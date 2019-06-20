@@ -19,7 +19,10 @@ class Game extends Component {
           <div className="small-screen-4 medium-screen-1 large-screen-1">
             <Profile />
           </div>
-          <div className="small-screen-4 medium-screen-3 large-screen-3 ">
+          <div
+            className="small-screen-4 medium-screen-3 large-screen-3"
+            id="quiz"
+          >
             <div>
               <Quiz />
             </div>

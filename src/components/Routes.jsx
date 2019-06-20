@@ -6,11 +6,9 @@ import { PropTypes } from 'prop-types';
 import Auth from './Auth/Auth';
 import Home from './Home/Home';
 import Game from './Game/Game';
-import SokectIo from './SocketIo/SocketIo';
 
-export const Routes = ({ isAuth }) => (
+export const Routes = ({ isAuth, profile }) => (
   <Switch>
-    <Route exact path="/socket" render={props => <SokectIo {...props} />} />
     <Route
       exact
       path="/"
@@ -25,21 +23,23 @@ export const Routes = ({ isAuth }) => (
     <Route
       exact
       path="/game"
-      render={props => (isAuth ? <Game {...props} /> : <Home />)}
+      render={props => (isAuth && profile ? <Game {...props} /> : <Home />)}
+    />
+    <Route
+      exact
+      path="/game/:roomName"
+      render={props => (isAuth && profile ? <Game {...props} /> : <Home />)}
     />
   </Switch>
 );
-
 Routes.propTypes = {
   isAuth: PropTypes.bool
 };
-
 Routes.defaultProps = {
   isAuth: false
 };
-
-export const mapStateToProps = ({ user: { isAuth } }) => ({
-  isAuth
+export const mapStateToProps = ({ user: { isAuth, profile } }) => ({
+  isAuth,
+  profile
 });
-
 export default connect(mapStateToProps)(Routes);
