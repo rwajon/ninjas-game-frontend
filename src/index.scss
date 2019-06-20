@@ -1,0 +1,30 @@
+@import './assets/css/_colors';
+
+body {
+  animation: Animate-backgound-color 20s infinite;
+}
+@keyframes Animate-backgound-color {
+  0% {
+    background: $anim-palette-1
+  }
+  20% {
+    background: $anim-palette-2
+  }
+  40% {
+    background: $anim-palette-3
+  }
+  60% {
+    background: $anim-palette-4
+  }
+  80% {
+    background: $anim-palette-5
+  }
+  100% {
+    background: $anim-palette-1
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
