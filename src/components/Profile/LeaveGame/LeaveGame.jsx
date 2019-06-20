@@ -28,7 +28,7 @@ class LeaveGame extends Component {
             text="Leave"
             type="button"
             onClick={this.leaveGamingRoom}
-            className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
+            className="radius-4 button white radius-5 text-grey large-h-padding shadow-3 large-text"
           />
         </div>
       </div>

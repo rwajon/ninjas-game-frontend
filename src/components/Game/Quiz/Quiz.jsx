@@ -112,7 +112,7 @@ class Quiz extends Component {
               <button
                 type="button"
                 onClick={e => this.changeQuestion()}
-                className="submit radius-4 button radius-5 primary text-white center-align large-h-padding large-text"
+                className="submit radius-4 button radius-5 white text-grey center-align large-h-padding large-text"
               >
                 Next
               </button>

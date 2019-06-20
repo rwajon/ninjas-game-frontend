@@ -13,7 +13,7 @@ export default class Logout extends Component {
             text="Logout"
             type="button"
             onClick={logout}
-            className="radius-4 button danger radius-5 text-white large-h-padding shadow-3 large-text"
+            className="radius-4 button white radius-5 text-grey large-h-padding shadow-3 large-text"
           />
         </div>
       </div>
