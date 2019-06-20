@@ -24,7 +24,7 @@ class Game extends Component {
               <Quiz />
             </div>
             <div className="row">
-              <div className="black card radius-2">
+              <div className="black-opacity-3 card radius-2">
                 <Members />
                 <div className="divider" />
               </div>
@@ -41,7 +41,7 @@ Game.propTypes = {};
 const mapStateToProps = ({ user: { profile } }) => ({
   profile
 });
-export const mapDispatchToProps = dispatch => {};
+export const mapDispatchToProps = dispatch => { };
 
 export default connect(
   mapStateToProps,
