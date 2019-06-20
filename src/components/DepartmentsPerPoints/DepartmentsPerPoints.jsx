@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 class Levels extends Component {
   render() {
     const { levels } = this.props;
+
+    console.log('buzz', levels);
     return (
       <div className="medium-padding row">
         <table className="table">
@@ -13,13 +15,12 @@ class Levels extends Component {
             <th>Level</th>
             <th>Pt</th>
           </tr>
-
-          {levels.map((result, index) => {
+          {(levels || [{ level: 'Geo', points: 1 }]).map((level, index) => {
             return (
-              <tr key={index}>
+              <tr key={index} >
                 <td>{index + 1}</td>
-                <td>{result.level}</td>
-                <td>{result.points}</td>
+                <td>{level.level}</td>
+                <td>{level.points}</td>
               </tr>
             );
           })}

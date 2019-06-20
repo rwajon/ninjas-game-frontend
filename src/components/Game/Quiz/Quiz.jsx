@@ -83,11 +83,11 @@ class Quiz extends Component {
     return (
       <div className="grabGame row shadow-3 radius-1 text-white black-opacity-3 shadow-5">
         <div className="medium-v-padding ">
-          <span className="danger large-h-padding radius-3 bold medium-text text-white center-align">
+          <span className="danger border right large-padding  bold medium-text text-white center-align">
             {count} / 10
           </span>
           <br />
-          <div className="primary card radius-3 bold large-text text-white center-align">
+          <div className=" card radius-3 bold large-text text-white center-align">
             {question}
           </div>
           <form onSubmit={this.handleSubmit}>
@@ -99,6 +99,7 @@ class Quiz extends Component {
                 className="medium-text card grey-opacity"
                 onChange={this.handleChange}
                 autoComplete="off"
+                placeholder="Type your answer..."
               />
             </div>
             <div className="card">
@@ -121,8 +122,8 @@ class Quiz extends Component {
                   <img src={image} alt="" />
                 </div>
               ) : (
-                ''
-              )}
+                  ''
+                )}
             </div>
           </form>
           <br />

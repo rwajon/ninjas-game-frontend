@@ -9,7 +9,7 @@ export const addMember = payload => {
   let isMember = false;
   let allMembersTwo = [];
   const { member, members, allMembers } = payload;
-  allMembers.forEach(val => {
+  members.forEach(val => {
     if (val.id === member.id) {
       allMembersTwo = [...members, member];
       console.log('here=>', allMembersTwo);

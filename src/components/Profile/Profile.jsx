@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as helper from '../../helpers';
 import LeaveGame from './LeaveGame/LeaveGame';
 import Logout from '../Logout/Logout';
+import DepartmentsPerPoints from '../DepartmentsPerPoints/DepartmentsPerPoints'
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
@@ -34,6 +35,7 @@ export class Profile extends Component {
             Computing: {helper.getScore(attempts.computing)} / 10
           </div>
           <div className="clear" />
+          <DepartmentsPerPoints />
           <Logout />
           <LeaveGame />
           <br />

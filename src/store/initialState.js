@@ -92,8 +92,13 @@ module.exports = {
     members: []
   },
   user: {
-    profile: user.profile,
-    isAuth: user.isAuth,
+    profile: {},
+    isAuth: true,
     errors: null
-  }
+  },
+  levels: [
+    { level: 'Geography', points: 1 },
+    { level: 'Public Figures', points: 1 },
+    { level: 'Programming Languages', points: 1 }
+  ],
 };
