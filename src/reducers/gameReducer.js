@@ -6,20 +6,34 @@ export default (state = initialState, { type, payload }) => {
     case types.game.SAVE_GEOGRAPHY_ATTEMPTS:
       return {
         ...state,
-        attempts: {
-          ...state.attempts,
-          geography: [...state.attempts.geography, payload]
-        }
+        room: payload
       };
     case types.game.ADD_MEMBER:
       return {
         ...state,
-        members: payload
+        members: payload.members,
+        room: payload
       };
     case types.game.LEAVE_GAME:
       return {
         ...state,
-        members: payload
+        members: payload.members,
+        room: payload
+      };
+    case types.game.CHANGE_QUESTION:
+      return {
+        ...state,
+        room: payload
+      };
+    case types.game.CREATE_ROOM:
+      return {
+        ...state,
+        room: payload
+      };
+    case types.game.REPLAY_GAME:
+      return {
+        ...state,
+        room: payload
       };
     default:
       return state;
