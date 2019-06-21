@@ -1,37 +1,41 @@
 import * as types from '../actions-types';
 
-export const saveGeographyAttempts = payload => ({
-  type: types.game.SAVE_GEOGRAPHY_ATTEMPTS,
+export const saveGeographyAttempts = payload => {
+  return {
+    type: types.game.SAVE_GEOGRAPHY_ATTEMPTS,
+    payload
+  };
+};
+
+export const addMember = payload => {
+  return {
+    type: types.game.ADD_MEMBER,
+    payload
+  };
+};
+
+export const createRoom = payload => ({
+  type: types.game.CREATE_ROOM,
   payload
 });
 
-export const addMember = payload => {
-  let isMember = false;
-  let allMembersTwo = [];
-  const { member, members, allMembers } = payload;
-  allMembers.forEach(val => {
-    if (val.id === member.id) {
-      allMembersTwo = [...members, member];
-      console.log('here=>', allMembersTwo);
-      isMember = true;
-    }
-  });
-  if (members.length) {
-    console.log('allMembers=>', [...allMembers, member]);
-  }
-  console.log('member action --> one', member);
-  console.log('members action --> two', members);
+export const changeQuestion = payload => {
   return {
-    type: types.game.ADD_MEMBER,
-    // payload: isMember ? members : [...members, member]
-    payload: isMember ? members : [...members, member]
-    // payload: allMembers
+    type: types.game.CHANGE_QUESTION,
+    payload
   };
 };
 
 export const leaveGame = payload => {
   return {
     type: types.game.LEAVE_GAME,
+    payload
+  };
+};
+
+export const replayGame = payload => {
+  return {
+    type: types.game.REPLAY_GAME,
     payload
   };
 };
