@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../../Common/Button';
+import Button from '../../commons/Button';
 import '../../../assets/css/style.scss';
 import Room from '../Room/Room';
 
