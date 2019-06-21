@@ -8,60 +8,47 @@ import { gameAction } from '../../../actions';
 
 class Members extends Component {
   componentDidMount = () => {
-    const { profile, addMember, members } = this.props;
+    const { profile, roomName } = this.props;
 
-    addMember({ member: profile, members });
-    // socketIOClient.emit('newMember', profile, members);
+    socketIOClient.emit('newMember', profile, roomName);
 
-    socketIOClient.on('newMember', (member, allMembers) => {
-      const { profile, addMember, members } = this.props;
-      // addMember({ member, members });
-      // socketIOClient.emit('newMember', profile, members);
-      if (member.id !== profile.id) {
-        // addMember({ member, members });
-        console.log('member --> one', member);
-        console.log('members --> one', members);
-      } else {
-        // addMember({ member, members: allMembers });
-        addMember({ member, members, allMembers });
-        console.log('members --> two', allMembers);
-        // socketIOClient.emit('newMember', member, members);
+    socketIOClient.on('newMember', (member, room) => {
+      const { addMember } = this.props;
+      if (roomName === room.name) {
+        addMember(room);
       }
     });
   };
 
-  componentDidUpdate() {
-    // socketIOClient.emit('newMember', profile, members);
-    const { profile, addMember, members } = this.props;
-    socketIOClient.emit('newMember', profile, members);
-  }
-
   render() {
-    const { members, attempts } = this.props;
+    const { room } = this.props;
     return (
       <div className="small-padding">
-        {members.map((member, index) => {
+        {(room.members || []).map((member, index) => {
           return (
-            <div className={`oneResult center-align radius-4`} key={index}>
+            <div
+              className={`oneResult black-opacity-3 center-align radius-4`}
+              key={index}
+            >
               <img
                 src={member.image || defaultPicture}
                 className="center shadow-4 left"
                 alt="profile"
                 style={{ width: '50px', borderRadius: '50%' }}
               />
-              <b className="text-black">
+              <b className="text-white">
                 {member.firstName} {member.lastName}
               </b>
-              <div className="grabDivPoints white radius-1">
-                {attempts.geography.length ? (
-                  attempts.geography.map(score => (
+              <div className="grabDivPoints radius-1">
+                {member.attempts.geography.length ? (
+                  member.attempts.geography.map(score => (
                     <div className={`${score ? 'correct' : 'wrong'}`}>
                       &nbsp;
                     </div>
                   ))
                 ) : (
-                  <div style={{ width: '100%' }}>&nbsp;</div>
-                )}
+                    <div style={{ width: '100%' }}>&nbsp;</div>
+                  )}
               </div>
             </div>
           );
@@ -72,12 +59,13 @@ class Members extends Component {
 }
 
 const mapStateToProps = ({
-  game: { members, attempts },
+  game: { members, attempts, room },
   user: { profile }
 }) => ({
   members,
   attempts,
-  profile
+  profile,
+  room
 });
 
 export const mapDispatchToProps = dispatch => ({

@@ -8,6 +8,14 @@ $danger: #f53d3d;
 $success: #1c8a4a;
 $info: #1cbdee;
 $light-grey: #ccc;
+/* background anim colors */
+$anim-palette-1: #FFB426;
+$anim-palette-2: #0E152E;
+$anim-palette-3: #420D3B;
+$anim-palette-4: #1A1549;
+$anim-palette-5: #BD243E;
+
+
 /* colors */
 .black {
   background: $black;
@@ -63,3 +71,5 @@ $light-grey: #ccc;
 .text-info {
   color: $info;
 }
+
+

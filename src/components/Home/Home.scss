@@ -1,56 +1,30 @@
 $bg-color: #fff;
 $text-color: white;
 
-body {
-  background: #000000 url(../../assets/images/abs-01.jpg) center top;
-  background-attachment: fixed;
-  background-size: 100%;
-  position: relative;
-  height: 100%;
-}
-body:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  /* background:red url(../../assets/images/abstract.jpg) no-repeat center bottom; */
-  background-attachment: fixed;
-  background-size: 100%;
-  opacity: 0.3;
-}
 .grabName {
   max-width: 400px;
+  width: 100%;
   float: left;
-  margin: 100px 0 0 0;
+  margin: 100px auto 0 auto;
   position: relative;
   z-index: 2;
 }
 .grabName img {
-  margin: 0;
+  margin: 0 auto;display: block;
   width: 100%;
+  max-width: 400px
 }
 .grabGraphic {
   margin: 0;
   float: left;
+  position: relative;
 }
 .grabGraphic img {
   margin: 80px 0 0 100px;
   max-width: 600px;
 }
-.lights {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  background: rgba(0, 0, 0, 0.65);
-}
-@media screen and (min-width: 700px) {
+
+@media screen and (min-width: 1100px) {
   .grabName {
     width: 50%;
   }
@@ -58,12 +32,13 @@ body:before {
     width: 50%;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   .grabName {
     width: 100%;
   }
   .grabGraphic {
     width: 100%;
+    display: none
   }
 }
 
@@ -71,13 +46,4 @@ body:before {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 15px !important;
-}
-
-@keyframes App-logo-spin {
-  from {
-    // transform: rotate(0deg);
-  }
-  to {
-    // transform: rotate(360deg);
-  }
 }
