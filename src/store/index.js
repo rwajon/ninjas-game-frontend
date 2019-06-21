@@ -4,8 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import initialState from './initialState';
 import reducers from '../reducers';
 
+const hostname = window.location.hostname;
+
 export default createStore(
   reducers,
   initialState,
-  composeWithDevTools(applyMiddleware(thunk))
+  hostname === 'localhost'
+    ? composeWithDevTools(applyMiddleware(thunk))
+    : applyMiddleware(thunk)
 );
