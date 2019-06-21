@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as helper from '../../helpers';
 import LeaveGame from './LeaveGame/LeaveGame';
 import Logout from '../Logout/Logout';
+import Room from './Room/Room';
 import defaultPicture from '../../assets/images/profile_plaholder.png';
 import '../../assets/css/style.scss';
 import './Profile.scss';
@@ -36,6 +37,7 @@ export class Profile extends Component {
           <div className="clear" />
           <Logout />
           <LeaveGame />
+          <Room />
           <br />
         </div>
       </div>
