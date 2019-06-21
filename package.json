@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll",
     "cover": "npm test -- --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && aws s3 cp --recursive ./build s3://ninja-guess-game"
   },
   "eslintConfig": {
     "extends": "react-app"
