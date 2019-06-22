@@ -48,8 +48,10 @@ class Quiz extends Component {
     });
 
     socketIOClient.on('answerQuestion', (point, member, updatedRoom) => {
-      const { saveGeographyAttempts } = this.props;
-      saveGeographyAttempts(updatedRoom);
+      const { saveGeographyAttempts, roomName } = this.props;
+      if (roomName === updatedRoom.name) {
+        saveGeographyAttempts(updatedRoom);
+      }
     });
 
     socketIOClient.on('gameReplayed', room => {

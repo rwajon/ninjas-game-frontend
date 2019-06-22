@@ -31,7 +31,6 @@ class LeaveGame extends Component {
   }
 
   render() {
-    const { roomName } = this.props;
     return (
       <div className="container">
         <div className="card center-align">
